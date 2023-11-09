@@ -1,0 +1,15 @@
+create database api;
+use api;
+
+
+CREATE TABLE tb_filme (
+    cod_prod		int primary key auto_increment,
+    nm_prod		varchar(200),
+    ds_prod		varchar(4000),
+    quant_prod		int
+    valor_prod		float
+    img_prod            varchar(800)
+);
+
+npm init -y 
+npm i cors express nodemon mysql2

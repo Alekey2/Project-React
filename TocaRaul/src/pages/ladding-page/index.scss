@@ -1,0 +1,287 @@
+@font-face {
+    font-family: 'PatuaOne';
+    src: url('../../assets/fonts/PatuaOne.woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: url('../../assets/fonts/Tajawal.woff2');
+}
+
+
+* {
+    margin: 0;
+}
+
+.pagina-home {
+
+
+
+    .sec1 {
+        background-image: url("../../assets/images/background-cantor.png");
+        max-width: 1920px;
+        width: 100%;
+        height: 1080px;
+        max-height: 100%;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            padding-top: 200px;
+
+            img {
+                scale: 150%;
+            }
+
+            h1 {
+                color: white;
+                font: 60px PatuaOne;
+                max-width: 650px;
+                padding-top: 100px;
+            }
+
+            p {
+                color: white;
+                font-family: 'Tajawal', sans-serif;
+                max-width: 650px;
+                font: 20px Tajawal;
+                padding-top: 30px;
+                padding-bottom: 100px;
+            }
+
+            button {
+                height: 70px;
+                width: 250px;
+                font: 30px Tajawal;
+                border-radius: 50px;
+                background-color: #ED3131;
+                color: white;
+                border: none;
+
+                &:hover {
+                    background-color: #ff4848;
+                    box-shadow: rgba(255, 27, 27, 0.2) 0px 8px 24px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+
+    .sec2 {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font: 40px PatuaOne;
+            color: #ED3131;
+
+        }
+
+        .produtos {
+            display: flex;
+            width: 1500px;
+            height: 400px;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+
+            div {
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                border-radius: 10px;
+                height: 320px;
+                width: 270px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    padding-top: 20px;
+                    max-width: 200px;
+                }
+
+                h1 {
+                    font: 20px Tajawal;
+                    color: black;
+                }
+
+                p {
+                    font: 40px Tajawal;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: rgba(245, 48, 48, 0.16) 0px 10px 36px 0px, rgba(245, 48, 48, 0.16) 0px 0px 0px 1px;
+                }
+            }
+        }
+    }
+
+    .sec3 {
+        display: flex;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        justify-content: center;
+        gap: 80px;
+
+        .imagemDecor {
+            max-width: 600px;
+        }
+
+        div {
+            h1 {
+                font: 40px PatuaOne;
+                color: #ED3131;
+            }
+
+            p {
+                padding-top: 50px;
+                font: 20px Tajawal;
+                width: 660px;
+            }
+
+            div {
+                padding-top: 50px;
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                width: 400px;
+
+                img {
+                    max-width: 150px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        background-color: #ED3131;
+        display: flex;
+        gap: 250px;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+
+        a {
+            font: 20px Tajawal;
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        img {
+            max-height: 100px;
+        }
+    }
+}
+
+@media only Screen and (max-width: 375px) {
+
+    .pagina-home {
+
+        .sec1 {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgb(41, 0, 0) 86%, rgb(59, 0, 0) 95%);
+            width: 100%;
+            height: 667px;
+
+            div {
+                padding: 70px 20px 20px 20px;
+
+                img {
+                    scale: 70%;
+                }
+
+                h1 {
+                    font-size: 30px;
+                    padding-top: 50px;
+                    width: 60%;
+                }
+
+                p {
+                    font-size: 15px;
+
+                }
+            }
+
+            button {
+                scale: 80%;
+            }
+        }
+
+        .sec2 {
+            height: 450px;
+
+            h1 {
+                font-size: 30px;
+                padding-bottom: -00px;
+            }
+
+            .produtos {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                scale: 50%;
+                width: 600px;
+                height: 300px;
+                position: relative;
+                bottom: 50px;
+            }
+        }
+
+        .sec3 {
+            padding-top: 50px;
+            height: 400px;
+
+            .imagemDecor {
+                display: none;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                padding-top: 50px;
+
+
+                h1 {
+                    font-size: 30px;
+                    width: 300px;
+                    height: 80px;
+                    text-align: center;
+                }
+
+                p {
+                    font-size: 15px;
+                    width: 330px;
+                    text-align: center;
+                }
+
+                div {
+                    position: relative;
+                    scale: 60%;
+                    bottom: 70px;
+                }
+            }
+        }
+
+        .footer {
+            flex-direction: column;
+
+            height: 250px;
+            gap: 20px;
+
+            img {
+                scale: 50%;
+            }
+        }
+    }
+}

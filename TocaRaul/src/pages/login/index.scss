@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+}
+
+.divLogin {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+    img {
+        padding: 70px 0px 70px 0px;
+    }
+
+    .caixaLogin {
+        background-color: white;
+        width: 500px;
+        height: 500px;
+        padding-left: 20px;
+        padding-top: 30px;
+        border-radius: 10px;
+        border-right: 30px solid #ED3131;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        h1 {
+            font: 30px PatuaOne;
+            color: #ED3131;
+            padding-bottom: 60px;
+        }
+
+
+        .divInput {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 70px;
+
+            label {
+                font: 25px Tajawal;
+            }
+
+            input {
+                background-color: rgb(237, 237, 237);
+                border: none;
+                width: 90%;
+                height: 30px;
+                border-radius: 3px;
+                color: black;
+            }
+        }
+
+        .divbotao {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .botao {
+                height: 50px;
+                width: 200px;
+                border-radius: 50px;
+                background-color: #ED3131;
+                color: white;
+                border: none;
+                font: 30px Arial;
+
+                &:hover {
+                    background-color: #ff4848;
+                    box-shadow: rgba(255, 27, 27, 0.2) 0px 8px 24px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media only Screen and (max-width: 375px) {
+    .divLogin {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            padding-top: 10px;
+            transform: scale(0.5);
+        }
+
+        .caixaLogin {
+            width: 300px;
+            height: 350px;
+            position: relative;
+            bottom: 60px;
+
+            h1 {
+                font-size: 25px;
+            }
+
+            form {
+                .divInput {
+                    padding-bottom: 30px;
+
+                    label {
+                        font-size: 20px;
+                    }
+                }
+
+                .divbotao {
+                    .botao {
+                        transform: scale(0.8);
+                    }
+                }
+            }
+        }
+    }
+}

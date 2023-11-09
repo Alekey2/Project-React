@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+}
+
+.styles-divErro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 300px;
+    gap: 30px;
+
+    img {
+        padding: 70px 0px 70px 0px;
+    }
+
+
+    h1 {
+        font: 30px Arial;
+        padding-bottom: 60px;
+    }
+
+}
