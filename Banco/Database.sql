@@ -1,1 +1,0 @@
-SELECT * FROM cad_produtos
