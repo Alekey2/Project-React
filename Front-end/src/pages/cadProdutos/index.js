@@ -17,7 +17,7 @@ export default function CadProdutos() {
 
     async function ListarProdutos() {
         try {
-            let r = await axios.get('http://localhost:5000/produtos');
+            let r = await axios.get('http://4.228.66.214:5000/produtos');
             let produtos = r.data;
             setListaProduto(produtos);
         } catch (error) {
@@ -43,7 +43,7 @@ export default function CadProdutos() {
                     valor: valor,
                 }
 
-                let r = await axios.post('http://localhost:5000/produtos', body);
+                let r = await axios.post('http://4.228.66.214:5000/produtos', body);
                 let id = r.data.id;
 
                 alert('Produto cadastrado. Id ' + id);
@@ -61,7 +61,7 @@ export default function CadProdutos() {
                 alert('ID do produto não foi fornecido');
                 return;
             }
-            let r = await axios.put(`http://localhost:5000/produtos/${produtoId}`, novosDados);
+            let r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}`, novosDados);
 
             if (r.status === 200) {
                 alert('Cadastro alterado com sucesso.');
@@ -76,7 +76,7 @@ export default function CadProdutos() {
 
     async function excluirProduto(produtoId) {
         try {
-            const response = await axios.delete(`http://localhost:5000/produtos/${produtoId}`);
+            const response = await axios.delete(`http://4.228.66.214:5000/produtos/${produtoId}`);
 
             if (response.status === 200) {
                 alert('Produto excluído com sucesso.');
@@ -159,6 +159,7 @@ export default function CadProdutos() {
                             <p className="descricao">{item.descricao}</p>
                             <p className="quantidade">{item.quantidade}</p>
                             <p className="valor">R$ {item.valor}</p>
+                           
 
                         </div>
 
