@@ -10,5 +10,5 @@ servidor.use(express.json());
 
 servidor.use(cadastroController);
 
-const port = 5000;
+const port = 5001;
 servidor.listen(port, () => console.log(`API subiu na porta ${port}`));
