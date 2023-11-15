@@ -127,7 +127,7 @@ export default function CadProdutos() {
                         nome: nome,
                         descricao: descricao,
                         quantidade: quantidade,
-                        valor: valor,
+                        valor: valor
                     })}> Alterar </button>
 
                 </div>
