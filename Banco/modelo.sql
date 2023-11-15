@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema API
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `API` DEFAULT CHARACTER SET utf8 ;
-USE `API` ;
+CREATE SCHEMA IF NOT EXISTS `API_DW` DEFAULT CHARACTER SET utf8 ;
+USE `API_DW` ;
 
 -- -----------------------------------------------------
 -- Table `API`.`cad_produtos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `API`.`cad_produtos` (
+CREATE TABLE IF NOT EXISTS `API_DW`.`cad_produtos` (
   `cod_prod` INT NOT NULL AUTO_INCREMENT,
   `nm_prod` VARCHAR(200) NOT NULL,
   `ds_prod` VARCHAR(4000) NOT NULL,
