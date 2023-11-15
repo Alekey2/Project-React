@@ -40,7 +40,7 @@ export default function CadProdutos() {
                     nome: nome,
                     descricao: descricao,
                     quantidade: quantidade,
-                    valor: valor,
+                    valor: valor
                 }
 
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
