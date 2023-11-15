@@ -2,11 +2,11 @@ import { conectar } from "./connection.js";
 
 export async function salvar(produtos) {
     const comando = `
-    INSERT INTO cad_produtos (nm_prod, ds_prod, quant_prod, valor_prod)
-                    VALUES (?, ?, ?, ?)
+    INSERT INTO cad_produtos (nm_prod, ds_prod, quant_prod, valor_prod,img_prod)
+                    VALUES (?, ?, ?, ?, ?)
     `
 
-    const [info] = await conectar.query(comando, [produtos.nome, produtos.descricao, produtos.quantidade, produtos.valor])
+    const [info] = await conectar.query(comando, [produtos.nome, produtos.descricao, produtos.quantidade, produtos.valor, produtos.imagem])
     produtos.id = info.insertId;
 
     return produtos;
