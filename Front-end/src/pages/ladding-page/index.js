@@ -22,8 +22,8 @@ export default function Home(){
                     <img src={ logobranca } alt="logo da loja toca raul"/>
                     <h1>Uma loja completa para a música perfeita!</h1>
                     <p>Descubra a loja perfeita para músicos de todos os níveis. Oferecemos uma ampla seleção de instrumentos musicais de alta qualidade, desde guitarras a teclados, para você criar sua música inesquecível.</p>
-                    <a href="login">
-                        <button>Login</button>
+                    <a href="CadProdutos">
+                        <button>Cadastro</button>
                     </a>
                 </div>
                 
