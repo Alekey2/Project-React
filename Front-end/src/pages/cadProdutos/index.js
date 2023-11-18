@@ -13,8 +13,8 @@ export default function CadProdutos() {
     const [quantidade, setQuantidade] = useState('');
     const [valor, setValor] = useState('');
     const [listaproduto, setListaProduto] = useState([]);
-    const [imagem, setImagem] = useState('')
-    const [arquivo, setArquivo] = useState()
+    const [imagem, setImagem] = useState('');
+    const [arquivo, setArquivo] = useState();
 
 
     async function ListarProdutos() {
@@ -26,7 +26,6 @@ export default function CadProdutos() {
             console.error('Erro ao buscar produtos:', error);
         }
     }
-
 
 
     async function salvarProdutos() {
@@ -42,7 +41,8 @@ export default function CadProdutos() {
                     nome: nome,
                     descricao: descricao,
                     quantidade: quantidade,
-                    valor: valor
+                    valor: valor,
+                    imagem: imagem
                 }
 
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
@@ -145,7 +145,8 @@ export default function CadProdutos() {
                         nome: nome,
                         descricao: descricao,
                         quantidade: quantidade,
-                        valor: valor
+                        valor: valor,
+                        imagem: imagem
                     })}> Alterar </button>
 
                 </div>
