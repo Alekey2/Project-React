@@ -175,7 +175,7 @@ export default function CadProdutos() {
                         <div className='produto'>
                             <p className="codigo">{item.id}</p>
                             <div className='text-img'>
-                            <img src={'http:///4.228.66.214:5000' + imagem } />
+                            <img src={'http:///4.228.66.214:5000' + item.imagem } />
                             <p className="text1">{item.nome}</p>
                             </div>
                             <p className="descricao">{item.descricao}</p>
