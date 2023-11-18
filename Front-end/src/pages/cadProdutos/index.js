@@ -49,6 +49,14 @@ export default function CadProdutos() {
                 let id = r.data.id;
                 
                 alert('Produto cadastrado. Id ' + id);
+
+                const formData = new FormData();
+                formData.append('capa', arquivo);
+        
+                r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
+                    headers: {'Content-Type': 'multipart/form-data'}
+                } )
+
                 ListarProdutos();
             }
         } catch (error) {
