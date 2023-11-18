@@ -47,8 +47,6 @@ export default function CadProdutos() {
 
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
                 let id = r.data.id;
-                
-                alert('Produto cadastrado. Id ' + id);
 
                 const formData = new FormData();
                 formData.append('capa', arquivo);
@@ -56,6 +54,10 @@ export default function CadProdutos() {
                 r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
                     headers: {'Content-Type': 'multipart/form-data'}
                 } )
+                
+                alert('Produto cadastrado. Id ' + id);
+
+                
 
                 ListarProdutos();
             }
@@ -66,12 +68,21 @@ export default function CadProdutos() {
 
 
     async function alterarProduto(produtoId, novosDados) {
+        
         try {
             if (!produtoId) {
                 alert('ID do produto não foi fornecido');
                 return;
             }
             let r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}`, novosDados);
+
+            const formData = new FormData();
+            formData.append('capa', arquivo);
+    
+            r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
+                headers: {'Content-Type': 'multipart/form-data'}
+            } )
+    
 
             if (r.status === 200) {
                 alert('Cadastro alterado com sucesso.');
@@ -82,13 +93,7 @@ export default function CadProdutos() {
             alert('Ocorreu um erro ao tentar alterar o cadastro:', error);
         }
 
-        const formData = new FormData();
-        formData.append('capa', arquivo);
-
-        r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-        } )
-
+   
         ListarProdutos();
     }
 
