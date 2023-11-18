@@ -1,7 +1,11 @@
-import { listar, salvar, buscarPorNome, remover, alterar } from "../repository/cadastroRepository.js";
+import { listar, salvar, buscarPorNome, remover, alterar, inserirImg } from "../repository/cadastroRepository.js";
+
+import multer from 'multer'
 
 import { Router } from "express";
 const endpoints = Router();
+
+const upload = multer({ dest: './storage'})
 
 endpoints.post('/produtos', async (req, resp) => {
   try {
@@ -29,6 +33,14 @@ endpoints.post('/produtos', async (req, resp) => {
     })
   }
 });
+
+endpoints.put('/produtos/:id/capa', upload.single('capa'), async (req, resp) => {
+  let id = req.params.id;
+  let caminho = req.file.path;
+
+  let r = await inserirImg(id,caminho)
+  resp.status(202).send();
+})
 
 endpoints.get('/produtos', async (req, resp) => {
   try {

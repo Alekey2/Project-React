@@ -43,6 +43,16 @@ export async function buscarPorNome(nome) {
     return linhas;
   }
 
+  export async function inserirImg(id, caminho) {
+    const comando = `
+    UPDATE cad_produtos
+    SET img_prod = ?
+    WHERE cod_prod = ?
+    `
+    const [linhas] = await conectar.query(comando, [caminho, id]);
+    return linhas.affectedRows;
+}
+
   export async function alterar(id, produto) {
     const comando = `
     UPDATE cad_produtos

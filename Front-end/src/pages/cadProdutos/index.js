@@ -13,6 +13,8 @@ export default function CadProdutos() {
     const [quantidade, setQuantidade] = useState('');
     const [valor, setValor] = useState('');
     const [listaproduto, setListaProduto] = useState([]);
+    const [imagem, setImagem] = useState('')
+    const [arquivo, setArquivo] = useState()
 
 
     async function ListarProdutos() {
@@ -45,7 +47,7 @@ export default function CadProdutos() {
 
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
                 let id = r.data.id;
-
+                
                 alert('Produto cadastrado. Id ' + id);
                 ListarProdutos();
             }
@@ -71,6 +73,14 @@ export default function CadProdutos() {
         } catch (error) {
             alert('Ocorreu um erro ao tentar alterar o cadastro:', error);
         }
+
+        const formData = new FormData();
+        formData.append('capa', arquivo);
+
+        r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
+            headers: {'Content-Type': 'multipart/form-data'}
+        } )
+
         ListarProdutos();
     }
 
@@ -118,7 +128,7 @@ export default function CadProdutos() {
                     <input type="text" id="valor" name="valor" value={valor} onChange={e => setValor(e.target.value)} />
 
                     <label for="imagem">Imagem:</label>
-                    <input className="imagem" type="file" name="imagem" />
+                    <input className="imagem" type="file" name="imagem" value={arquivo} onChange={e => setArquivo(e.target.files[0])}/>
                 </div>
 
                 <div className="divbotao">
@@ -155,7 +165,10 @@ export default function CadProdutos() {
                     {listaproduto.map(item =>
                         <div className='produto'>
                             <p className="codigo">{item.id}</p>
+                            <div className='text-img'>
+                            <img src={'http:///4.228.66.214:5000' + imagem } />
                             <p className="text1">{item.nome}</p>
+                            </div>
                             <p className="descricao">{item.descricao}</p>
                             <p className="quantidade">{item.quantidade}</p>
                             <p className="valor">R$ {item.valor}</p>

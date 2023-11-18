@@ -146,6 +146,14 @@
         .insereProduto{
             height: 60%;
             overflow: auto;
+
+
+            text-img{
+                display: flex;
+                flex-direction: column;
+                width: 30px;
+                height: 30px;
+            }
         }
 
         .produto {
