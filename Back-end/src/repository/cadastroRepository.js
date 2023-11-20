@@ -27,7 +27,7 @@ export async function listar() {
     return linhas;
 }
 
-export async function buscarPorNome(nome) {
+export async function buscarPorID(id) {
     const comando = `
     SELECT cod_prod        as id,
            nm_prod        as nome,
@@ -36,10 +36,10 @@ export async function buscarPorNome(nome) {
            valor_prod   as valor,
            img_prod       as imagem
       FROM cad_produtos
-      WHERE nm_prod like ?
+      WHERE cod_prod like ?
  `
   
-    const [linhas] = await conectar.query(comando, ['%'+nome+'%']);
+    const [linhas] = await conectar.query(comando, ['%'+id+'%']);
     return linhas;
   }
 

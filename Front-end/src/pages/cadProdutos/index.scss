@@ -94,7 +94,7 @@
                 border: none;
                 font: 32px Tajawal;
                 margin-left: -30px;
-                
+
 
                 &:hover {
                     background-color: #ff4848;
@@ -129,7 +129,7 @@
 
         }
 
-        .cabecalho-sec2{
+        .cabecalho-sec2 {
             display: flex;
             justify-content: space-around;
             font: 26px Tajawal;
@@ -143,63 +143,78 @@
             margin-top: 20px;
         }
 
-        .insereProduto{
+        .insereProduto {
             height: 60%;
             overflow: auto;
 
-
-            text-img{
+            .text-img {
                 display: flex;
                 flex-direction: column;
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        .produto {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 120px;
-            border: 2px solid black;
-            
-        
-
-            p {
-                display: flex;
-                text-align: center;
+                justify-content: center;
                 align-items: center;
+                width: 80px;
                 height: 110px;
-                width: 100px;
-                        
-            }
-            
-            .codigo{
-                margin-left: 100px;
-                margin-right: 120px;   
+
+                p{
+                    display: flex;
+                    justify-content: center;
                 
-  
-            }
-            .text1{
-                margin-right: 120px; 
-               
-            }
+                }
 
-            .descricao{
-            
-                margin-right: 220px; 
-               
+                border: 2px solid black;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
             }
 
-            .valor{
-                margin-left: 140px; 
-               
+
+            .produto {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 120px;
+                border: 2px solid black;
+
+
+
+                p {
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    height: 110px;
+                    width: 100px;
+
+                }
+
+                .codigo {
+                    margin-left: 100px;
+                    margin-right: 100px;
+                
+
+                }
+
+                .descricao {
+                    
+                    margin-left: 130px;
+
+                }
+                .quantidade{
+                    margin-left: 230px;
+                }
+
+                .valor {
+                    margin-left: 140px;
+
+                }
+
+
+
             }
-
-            
-
         }
+
 
     }
 

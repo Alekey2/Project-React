@@ -25,9 +25,8 @@ export default function CadProdutos() {
         } catch (error) {
             console.error('Erro ao buscar produtos:', error);
         }
+        
     }
-
-
 
     async function salvarProdutos() {
         try {
@@ -42,20 +41,16 @@ export default function CadProdutos() {
                     nome: nome,
                     descricao: descricao,
                     quantidade: quantidade,
-                    valor: valor
+                    valor: valor,
+                    imagem: imagem
                 }
 
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
                 let id = r.data.id;
+
+               
                 
                 alert('Produto cadastrado. Id ' + id);
-
-                const formData = new FormData();
-                formData.append('capa', arquivo);
-        
-                r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
-                    headers: {'Content-Type': 'multipart/form-data'}
-                } )
 
                 ListarProdutos();
             }
@@ -73,6 +68,12 @@ export default function CadProdutos() {
             }
             let r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}`, novosDados);
 
+            const formData = new FormData();
+            formData.append('capa', arquivo);
+            r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`,formData, {
+                headers: {'Content-Type': 'multipart/form-data'}
+            })
+
             if (r.status === 200) {
                 alert('Cadastro alterado com sucesso.');
             } else {
@@ -82,12 +83,6 @@ export default function CadProdutos() {
             alert('Ocorreu um erro ao tentar alterar o cadastro:', error);
         }
 
-        const formData = new FormData();
-        formData.append('capa', arquivo);
-
-        r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`, formData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-        } )
 
         ListarProdutos();
     }
@@ -136,7 +131,7 @@ export default function CadProdutos() {
                     <input type="text" id="valor" name="valor" value={valor} onChange={e => setValor(e.target.value)} />
 
                     <label for="imagem">Imagem:</label>
-                    <input className="imagem" type="file" name="imagem" value={arquivo} onChange={e => setArquivo(e.target.files[0])}/>
+                    <input className="imagem" type="file" name="imagem" onChange={e => setArquivo(e.target.files[0])}/>
                 </div>
 
                 <div className="divbotao">
@@ -145,7 +140,8 @@ export default function CadProdutos() {
                         nome: nome,
                         descricao: descricao,
                         quantidade: quantidade,
-                        valor: valor
+                        valor: valor,
+                        imagem: imagem
                     })}> Alterar </button>
 
                 </div>
@@ -174,7 +170,7 @@ export default function CadProdutos() {
                         <div className='produto'>
                             <p className="codigo">{item.id}</p>
                             <div className='text-img'>
-                            <img src={'http:///4.228.66.214:5000' + imagem } />
+                            <img src={"http://4.228.66.214:5000/" + item.imagem}/>
                             <p className="text1">{item.nome}</p>
                             </div>
                             <p className="descricao">{item.descricao}</p>

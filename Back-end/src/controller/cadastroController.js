@@ -1,4 +1,4 @@
-import { listar, salvar, buscarPorNome, remover, alterar, inserirImg } from "../repository/cadastroRepository.js";
+import { listar, salvar, buscarPorID, remover, alterar, inserirImg } from "../repository/cadastroRepository.js";
 
 import multer from 'multer'
 
@@ -42,6 +42,8 @@ endpoints.put('/produtos/:id/capa', upload.single('capa'), async (req, resp) => 
   resp.status(202).send();
 })
 
+
+
 endpoints.get('/produtos', async (req, resp) => {
   try {
     let r = await listar(salvar);
@@ -56,16 +58,16 @@ endpoints.get('/produtos', async (req, resp) => {
 
 endpoints.get('/produtos/busca', async (req, resp) => {
   try {
-    const nome = req.query.nome;
+    const id = req.params.id;
 
-    if (!nome) {
+    if (!id) {
       resp.status(400).send({
         erro: "O parâmetro 'nome' é obrigatório."
       });
       return;
     }
 
-    const resultado = await buscarPorNome(nome);
+    const resultado = await buscarPorID(id);
 
     resp.send(resultado);
   } catch (err) {
