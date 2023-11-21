@@ -33,6 +33,11 @@ export default function CadProdutos() {
             const produtoExistente = listaproduto.find(
                 (produto) => produto.nome === nome && produto.descricao === descricao
             );
+            
+            if (!nome || !descricao || !preco || !custo) {
+                alert('Por favor, preencha todos os campos.');
+                return; 
+            }
 
             if (produtoExistente) {
                 alert('Este produto já está cadastrado.');
@@ -48,7 +53,7 @@ export default function CadProdutos() {
                 let r = await axios.post('http://4.228.66.214:5000/produtos', body);
                 let id = r.data.id;
 
-               
+
                 
                 alert('Produto cadastrado. Id ' + id);
 
@@ -68,11 +73,14 @@ export default function CadProdutos() {
             }
             let r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}`, novosDados);
 
+
+
             const formData = new FormData();
             formData.append('capa', arquivo);
             r = await axios.put(`http://4.228.66.214:5000/produtos/${produtoId}/capa`,formData, {
                 headers: {'Content-Type': 'multipart/form-data'}
             })
+
 
             if (r.status === 200) {
                 alert('Cadastro alterado com sucesso.');
