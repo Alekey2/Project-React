@@ -34,7 +34,7 @@ export default function CadProdutos() {
                 (produto) => produto.nome === nome && produto.descricao === descricao
             );
             
-            if (!nome || !descricao || !preco || !custo) {
+            if (!nome || !descricao || !quantidade || !valor) {
                 alert('Por favor, preencha todos os campos.');
                 return; 
             }
